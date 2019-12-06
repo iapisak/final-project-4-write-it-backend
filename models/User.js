@@ -21,6 +21,16 @@ const UserSchema = new Schema({
         type: String,
         required: [true,'password is required']
     },
+
+    signup_date: {
+        type: Date,
+        default: Date.now
+    },
+
+    posts:[{
+        type: Schema.Types.ObjectId,
+        ref:'Post'
+    }],
     
     slug: String,
 })

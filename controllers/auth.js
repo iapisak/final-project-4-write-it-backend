@@ -17,7 +17,7 @@ const createSession = (req, res) => {
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
             if (err) return res.status(500).json ({
                 status: 500,
-                error: [{ message: 'Something went wrong. Please try again' }]
+                error: [{ message: 'Something went wrong. Please try again 2' }]
             })
   
             if (isMatch) {
@@ -56,7 +56,7 @@ const createUser = (req, res) => {
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
       if (err) return res.status(500).json ({
           status: 500,
-          error: [{ message: 'Something went wrong. Please try again' }]
+          error: [{ message: 'Something went wrong. Please try again test 1' }]
       });
 
       if (foundUser) {
@@ -69,13 +69,13 @@ const createUser = (req, res) => {
       bcrypt.genSalt(10, (err, salt) => {
           if (err) return res.status(500).json ({
               status: 500,
-              error: [{ message: 'Something went wrong. Please try again' }]
+              error: [{ message: 'Something went wrong. Please try again test 2' }]
           });
 
           bcrypt.hash(req.body.password, salt, (err, hash) => {
               if (err) return res.status(500).json ({
                   status: 500,
-                  error: [{ message: 'Something went wrong. Please try again' }]
+                  error: [{ message: 'Something went wrong. Please try again test 3' }]
               });
 
               const newUser = { ...req.body, password: hash }
@@ -83,7 +83,7 @@ const createUser = (req, res) => {
               db.User.create(newUser, (err, createUser) => {
                 if (err) return res.status(500).json ({
                     status: 500,
-                    error: [{ message: 'Something went wrong. Please try again' }]
+                    error: [{ message: 'Something went wrong. Please try again test 4' }]
                 });
                 
                 res.status(201).json({
