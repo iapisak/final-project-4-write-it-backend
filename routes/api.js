@@ -8,8 +8,8 @@ router.delete('/logout', ctrl.auth.deleteSession)
 router.post('/signup', ctrl.auth.createUser)
 
 // ----------------------------- Profile -------------------------- //
-router.get('/profile', ctrl.profile.getProfile)
-router.get('/posts/:user_Id', ctrl.profile.getAllPosts)
+router.get('/profile/:user_Id', ctrl.profile.getProfile)
+router.get('/profile/posts/:user_Id', ctrl.profile.getAllPosts)
 
 // ----------------------------- Channel -------------------------- //
 router.get('/channel', ctrl.channel.channel)

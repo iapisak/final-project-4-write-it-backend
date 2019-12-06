@@ -11,7 +11,7 @@ const getProfile = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
     try {
-        const getPosts = await db.Post.findById({ user: req.params.user_Id}).populate("user")
+        const getPosts = await db.Post.find({ user: req.params.user_Id}).populate("user")
         res.json ({ status: 200, data: getPosts})
     } catch (err) {
         return res.status(400).json({ error: "Could not get Posts"})
