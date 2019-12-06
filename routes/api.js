@@ -7,9 +7,13 @@ router.post('/login', ctrl.auth.createSession)
 router.delete('/logout', ctrl.auth.deleteSession)
 router.post('/signup', ctrl.auth.createUser)
 
+// ----------------------------- Profile -------------------------- //
+router.get('/profile', ctrl.profile.getProfile)
+router.get('/posts/:user_Id', ctrl.profile.getAllPosts)
+
 // ----------------------------- Channel -------------------------- //
 router.get('/channel', ctrl.channel.channel)
-router.post('/channel/create', ctrl.channel.createChannel)
+router.put('/channel/create', ctrl.channel.createChannel)
 router.delete('/channel/:channel_Id', ctrl.channel.deleteChannel)
 
 // ----------------------------- Post -------------------------- //

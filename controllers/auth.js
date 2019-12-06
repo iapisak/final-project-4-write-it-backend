@@ -25,7 +25,7 @@ const createSession = (req, res) => {
                 req.session.currentName = foundUser.name
                 return res.status(201).json({
                     status: 201,
-                    data: { id: foundUser._id, name: foundUser.name},
+                    data: { id: foundUser._id, name: foundUser.name, slug: foundUser.slug},
                 });
             } else {
                 return res.status(400).json({

@@ -3,4 +3,5 @@ module.exports = {
     channel: require('./channel'),
     post: require('./post'),
     comment: require('./comment'),
+    profile: require('./profile'),
 }

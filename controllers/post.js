@@ -32,7 +32,7 @@ const getPostDetail = async (req, res) => {
 // Get All Post with Specific channels //
 const getPosts = async (req, res) => {
     try {
-        const foundPosts = await db.Post.find({ channel: req.params.channel_Id }).populate("channel");
+        const foundPosts = await db.Post.find({ channel: req.params.channel_Id }).populate("channel", "user");
         res.json({ status: 200, data: foundPosts});
     } catch (err) {
         return res.status(500).json({ error: "Could not find posts" });
@@ -49,7 +49,6 @@ const updatePosts = async (req, res) => {
         return res.status(500).json({ error: "Could not update it"})
     }
 }
-
 
 // Delete Post //
 const deletePost = async (req, res) => {
