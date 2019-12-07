@@ -17,7 +17,18 @@ const getAllPosts = async (req, res) => {
         return res.status(400).json({ error: "Could not get Posts"})
     }
 }
+
+const editProfie = async (req, res) => {
+    try {
+        const profile = await db.User.findByIdAndUpdate(req.params.user_Id, req.body, { new: true })
+        res.json({ status: 200, data: profile })
+    } catch (err) {
+        return res.status(500).json({ error: "Could not update it"})
+    }
+}
+
 module.exports = {
     getProfile,
     getAllPosts,
+    editProfie,
 }
