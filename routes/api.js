@@ -27,7 +27,7 @@ router.delete('/posts/delete/:post_Id', ctrl.post.deletePost)
 
 // ----------------------------- Comment -------------------------- //
 router.get('/comment', ctrl.comment.getAllComments)
-router.get('/comment/post/:post_Id', ctrl.comment.getCommentsByChannel)
+router.get('/comment/post/:post_Id', ctrl.comment.getCommentsByPost)
 router.put('/comment/create', ctrl.comment.createComment)
 router.delete('/comment/delete/:comment_Id', ctrl.comment.deleteComment)
 
