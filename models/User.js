@@ -27,6 +27,16 @@ const UserSchema = new Schema({
         default: Date.now
     },
 
+    photo: {
+        type: String,
+        default: "https://www.thumbshots.com/portals/0/Images/StayLonger.png"
+    },
+
+    theme: {
+        type: String,
+        default: "https://www.journeychurchdfw.com/wp-content/uploads/2018/11/red-bg.jpg"
+    },
+
     posts:[{
         type: Schema.Types.ObjectId,
         ref:'Post'
