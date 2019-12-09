@@ -54,7 +54,8 @@ const updatePosts = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         const deletePost = await db.Post.findByIdAndDelete(req.params.post_Id)
-        res.json({ status: 200, data: deletePost })
+        const deleteComment = await db.Comment.find({ post: req.params.post_Id }).populate("post")
+        res.json({ status: 200, post: deletePost, comment: deleteComment })
     } catch (err) {
         return res.status(500).json({ error: "Could not find this post"})
     }

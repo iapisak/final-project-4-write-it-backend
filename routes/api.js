@@ -10,6 +10,7 @@ router.post('/signup', ctrl.auth.createUser)
 // ----------------------------- Profile -------------------------- //
 router.get('/profile/:user_Id', ctrl.profile.getProfile)
 router.get('/profile/posts/:user_Id', ctrl.profile.getAllPosts)
+router.get('/profile/comments/:user_Id', ctrl.profile.getAllComments)
 router.put('/profile/edit/:user_Id', ctrl.profile.editProfie)
 
 // ----------------------------- Channel -------------------------- //

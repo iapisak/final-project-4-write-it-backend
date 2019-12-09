@@ -9,9 +9,20 @@ const getProfile = async (req, res) => {
     }
 }
 
+// Populated Comment by user //
+const getAllComments = async (req, res) => {
+    try {
+        const getComments = await db.Comment.find({ user: req.params.user_Id}).populate("user")
+        res.json({ status: 200, data: getComments});
+    } catch (err) {
+        return res.status(500).json({ error: "Could not find this user" });
+    }
+}
+
+// Populated Post by post //
 const getAllPosts = async (req, res) => {
     try {
-        const getPosts = await db.Post.find({ user: req.params.user_Id}).populate("user")
+        const getPosts = await db.Post.find({ user: req.params.user_Id }).populate("user")
         res.json ({ status: 200, data: getPosts})
     } catch (err) {
         return res.status(400).json({ error: "Could not get Posts"})
@@ -30,5 +41,6 @@ const editProfie = async (req, res) => {
 module.exports = {
     getProfile,
     getAllPosts,
+    getAllComments,
     editProfie,
 }
