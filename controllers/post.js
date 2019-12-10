@@ -22,7 +22,7 @@ const getAllPosts = async (req, res) => {
 // Get 1 postDetail //
 const getPostDetail = async (req, res) => {
     try {
-        const foundPosts = await db.Post.findById(req.params.post_Id);
+        const foundPosts = await db.Post.findById(req.params.post_Id).populate("channel");
         res.json({ status: 200, data: foundPosts});
     } catch (err) {
         return res.status(500).json({ error: "Could not find posts" });
@@ -32,8 +32,8 @@ const getPostDetail = async (req, res) => {
 // Get All Post with Specific channels //
 const getPosts = async (req, res) => {
     try {
-        const foundPosts = await db.Post.find({ channel: req.params.channel_Id }).populate("channel", "user");
-        res.json({ status: 200, data: foundPosts});
+        const foundPosts = await db.Post.find({ channel: req.params.channel_Id }).populate("channel");
+        res.json({ status: 200, data: foundPosts });
     } catch (err) {
         return res.status(500).json({ error: "Could not find posts" });
     }
@@ -54,7 +54,8 @@ const updatePosts = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         const deletePost = await db.Post.findByIdAndDelete(req.params.post_Id)
-        res.json({ status: 200, data: deletePost })
+        const deleteComment = await db.Comment.find({ post: req.params.post_Id }).populate("post")
+        res.json({ status: 200, post: deletePost, comment: deleteComment })
     } catch (err) {
         return res.status(500).json({ error: "Could not find this post"})
     }

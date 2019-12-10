@@ -23,9 +23,10 @@ const createSession = (req, res) => {
             if (isMatch) {
                 req.session.currentUser = foundUser._id
                 req.session.currentName = foundUser.name
+                req.session.currentUserPhoto = foundUser.photo
                 return res.status(201).json({
                     status: 201,
-                    data: { id: foundUser._id, name: foundUser.name, slug: foundUser.slug},
+                    data: { id: foundUser._id, name: foundUser.name, slug: foundUser.slug, photo: foundUser.photo},
                 });
             } else {
                 return res.status(400).json({

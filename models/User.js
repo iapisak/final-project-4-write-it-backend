@@ -27,6 +27,16 @@ const UserSchema = new Schema({
         default: Date.now
     },
 
+    photo: {
+        type: String,
+        default: "https://www.landscapeto.ca/wp-content/uploads/2019/03/user.png"
+    },
+
+    theme: {
+        type: String,
+        default: "https://images.unsplash.com/photo-1528297506728-9533d2ac3fa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=3300&q=80"
+    },
+
     posts:[{
         type: Schema.Types.ObjectId,
         ref:'Post'

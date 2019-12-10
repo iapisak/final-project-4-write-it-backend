@@ -11,7 +11,7 @@ const getAllComments = async (req, res) => {
 };
 
 // Populated Comment by post //
-const getCommentsByChannel = async (req, res) => {
+const getCommentsByPost = async (req, res) => {
     try {
         const getComments = await db.Comment.find({ post: req.params.post_Id}).populate("post")
         res.json({ status: 200, data: getComments});
@@ -44,5 +44,5 @@ module.exports = {
     getAllComments,
     createComment,
     deleteComment,
-    getCommentsByChannel,
+    getCommentsByPost,
 }
