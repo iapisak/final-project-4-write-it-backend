@@ -10,7 +10,7 @@ require('dotenv').config();
 const routes = require('./routes/api');
 
 const corsOptions = {
-    origin:['http://localhost:3000', 'https://fathomless-escarpment-12751.herokuapp.com'],
+    origin:['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
     credentials: true,
     optionsSuccessStatus: 200
 }
