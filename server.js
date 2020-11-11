@@ -15,12 +15,14 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+app.use(cors());
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000', 'https://project-write-it.herokuapp.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
-});
-
-app.use(cors(corsOptions));
+  })
 
 // === MiddleWare === //
 app.use(bodyParser.json());
