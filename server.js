@@ -11,7 +11,7 @@ const routes = require('./routes/api');
 
 const corsOptions = {
     "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
-    credentials: true,
+    // credentials: true,
     optionsSuccessStatus: 200
 }
 
