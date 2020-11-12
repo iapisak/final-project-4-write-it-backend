@@ -14,7 +14,7 @@ const corsOptions = {
     "Access-Control-Allow-Methods": POST,GET,PUT,DELETE,
     "Access-Control-Allow-Credentials": true,
     // Origin: ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
-    // Credentials: false,
+    Credentials: true,
     optionsSuccessStatus: 200
 }
 
