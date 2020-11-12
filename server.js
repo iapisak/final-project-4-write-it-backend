@@ -10,6 +10,7 @@ require('dotenv').config();
 const routes = require('./routes/api');
 
 const corsOptions = {
+    header: {"Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'] },
     Origin:['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
     credentials: true,
     optionsSuccessStatus: 200
