@@ -10,20 +10,14 @@ require('dotenv').config();
 const routes = require('./routes/api');
 
 const corsOptions = {
-    // "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
-    // "Access-Control-Allow-Credentials": true,
-    Credentials: true,
+    "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
+    "Access-Control-Allow-Headers": true,
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
     optionsSuccessStatus: 200
 }
 
-app.use(cors());
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://project-write-it.herokuapp.com']);
-  res.header('Access-Control-Allow-Headers', true);
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  next();
-})
+app.use(cors(corsOptions));
 
 // === MiddleWare === //
 app.use(bodyParser.json());
