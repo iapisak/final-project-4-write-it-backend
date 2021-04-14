@@ -10,7 +10,7 @@ require('dotenv').config();
 const routes = require('./routes/api');
 
 const corsOptions = {
-    "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
+    "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://master.d1lm7q7q7y5fir.amplifyapp.com', 'https://project-write-it.herokuapp.com'],
     "Access-Control-Allow-Headers": true,
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
